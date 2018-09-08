@@ -14,6 +14,9 @@ class SamplePlugin extends Yaf\Plugin_Abstract {
   }
 
   public function routerShutdown(Request_Abstract $request, Response_Abstract $response) {
+    $s = 'application/json';
+    if($request->isPost() && strtolower(substr(getallheaders()['Content-Type'], 0, strlen($s))) == $s)
+      $_POST = json_decode(file_get_contents('php://input'), true);
   }
 
   public function dispatchLoopStartup(Request_Abstract $request, Response_Abstract $response) {

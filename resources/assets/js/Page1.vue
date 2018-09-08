@@ -1,5 +1,8 @@
+<style>
+.page1 {background-color: yellow}
+</style>
 <template>
-  <div style="background-color: yellow">
+  <div class="page1">
     Page1
   </div>
 </template>
